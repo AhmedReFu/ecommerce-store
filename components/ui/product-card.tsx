@@ -1,14 +1,14 @@
 "use client"
 import Image from "next/image";
 
-import { Product } from "@/types";
-import IconButton from "@/components/ui/icon-button";
-import {  Expand, ShoppingCart } from "lucide-react";
 import Currency from "@/components/ui/currency";
+import IconButton from "@/components/ui/icon-button";
+import useCart from "@/hooks/use-cart";
+import usePreviewModal from "@/hooks/use-preview-modal";
+import { Product } from "@/types";
+import { Expand, ShoppingCart } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { MouseEventHandler, useEffect, useState } from "react";
-import usePreviewModal from "@/hooks/use-preview-modal";
-import useCart from "@/hooks/use-cart";
 
 interface ProductCard{
     data: Product;
@@ -71,7 +71,7 @@ const previewModal = usePreviewModal();
       {/* Description */}
       <div>
         <p className="font-semibold text-lg">{data.name}</p>
-        <p className="text-sm text-gray-500">{data.category?.name}</p>
+        <p className="text-sm text-gray-500">{data.category.name}</p>
       </div>
       {/* Price */}
       <div className="flex items-center justify-between">
